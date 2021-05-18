@@ -39,7 +39,7 @@ def caesar(text,shift,direction):
     if direction == 'decode':
       newtext.append(alphabet[alphabet.index(char)-shift])
   result = ''.join(newtext)    
-  print(f'your new string is {result}')
+  print(f'your {direction}new string is {result}')
 
 caesar(text,shift,direction)
 
