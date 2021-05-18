@@ -30,13 +30,16 @@ def caesar(text,shift,direction):
     shift = shift%len(alphabet)
   #incase if shift amount is bigger than the alphabet list
   for char in text:
-    if direction == 'encode':
-      if alphabet.index(char)+shift <= alphabet.index('z'):
-        newtext.append(alphabet[alphabet.index(char)+shift])
-      elif alphabet.index(char)+shift > alphabet.index('z'):#incase the index+shift amount is greater than the lenght of the list
-        newtext.append(alphabet[shift-(alphabet.index('z')-alphabet.index(char))-1])
-    if direction == 'decode':
-      newtext.append(alphabet[alphabet.index(char)-shift])
+    if char in alphabet:
+      if direction == 'encode':
+        if alphabet.index(char)+shift <= alphabet.index('z'):
+          newtext.append(alphabet[alphabet.index(char)+shift])
+        elif alphabet.index(char)+shift > alphabet.index('z'):#incase the index+shift amount is greater than the lenght of the list
+          newtext.append(alphabet[shift-(alphabet.index('z')-alphabet.index(char))-1])
+      if direction == 'decode':
+        newtext.append(alphabet[alphabet.index(char)-shift])
+    else:
+      newtext.append(char)
   result = ''.join(newtext)    
   print(f'your {direction}d new string is {result}')
 
