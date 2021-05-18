@@ -26,6 +26,9 @@ repeat = True
 
 def caesar(text,shift,direction):
   newtext = []
+  if shift > len(alphabet):
+    shift = shift%len(alphabet)
+  #incase if shift amount is bigger than the alphabet list
   for char in text:
     if direction == 'encode':
       if alphabet.index(char)+shift <= alphabet.index('z'):
