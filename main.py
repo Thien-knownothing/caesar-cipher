@@ -1,9 +1,5 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-
+repeat = True
 # #encrypt function
 # def encrypt(text,shift):
 #   newtext = []
@@ -39,7 +35,22 @@ def caesar(text,shift,direction):
     if direction == 'decode':
       newtext.append(alphabet[alphabet.index(char)-shift])
   result = ''.join(newtext)    
-  print(f'your {direction}new string is {result}')
+  print(f'your {direction}d new string is {result}')
 
-caesar(text,shift,direction)
+
+
+while repeat == True:
+  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n"))
+  caesar(text,shift,direction)
+  cont = input('Do you want to continue: Yes/No:')
+  if cont[0].lower() == 'y':
+    repeat = True
+  else :
+    repeat = False
+    print('Thank you for using caesar cipher')
+
+  
+
 
